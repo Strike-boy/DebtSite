@@ -435,6 +435,43 @@
 </div>
 
 <script>
+
+const APP_LOGIN = "DebtBook";
+const APP_PASSWORD = "Shop2026";
+
+function checkLogin() {
+  const logged = sessionStorage.getItem("debtbook_login");
+
+  if (logged === "true") {
+    return true;
+  }
+
+  const login = prompt("Введите логин:");
+  const password = prompt("Введите пароль:");
+
+  if (login === APP_LOGIN && password === APP_PASSWORD) {
+    sessionStorage.setItem("debtbook_login", "true");
+    return true;
+  }
+
+  document.body.innerHTML = `
+    <div style="
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      background:#0f1117;
+      color:white;
+      font-family:sans-serif;
+      font-size:24px;
+    ">
+      Доступ запрещён
+    </div>
+  `;
+
+  return false;
+}
+
 /* ═══════════════════════════════════════════
    DATA LAYER (localStorage)
 ══════════════════════════════════════════════ */
