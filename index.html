@@ -828,8 +828,12 @@ document.addEventListener('keydown', e => {
 /* ═══════════════════════════════════════════
    INIT
 ══════════════════════════════════════════════ */
-loadDB();
-renderSidebar();
+
+if (checkLogin()) {
+  loadDB();
+  renderSidebar();
+}
+
 </script>
 </body>
 </html>
